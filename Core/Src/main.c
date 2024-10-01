@@ -114,6 +114,9 @@ int main(void)
 
   const int blink_delay_ms = 2000;
 
+  const float led_power = 0.8;
+  const float fan_power = 0.35;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,9 +131,9 @@ int main(void)
 	  TIM2->CCR3 = 2000; //D_PWM_G
 	  TIM2->CCR4 = 2000; //D_PWM_R*/
 
-	  TIM3->CCR1 = 52425; //D_PWM_STRIP - 80% PWM
-	  TIM3->CCR2 = 65532 - 36042; //D_FAN2_PWM - 55% PWM (value inverted)
-	  TIM3->CCR3 = 65532 - 36042; //D_FAN1_PWM - 55% PWM (value inverted)
+	  TIM3->CCR1 = (int)(65532*led_power); //D_PWM_STRIP - 80% PWM
+	  TIM3->CCR2 = 65532 - (int)(65532*fan_power); //D_FAN2_PWM - 55% PWM (value inverted)
+	  TIM3->CCR3 = 65532 - (int)(65532*fan_power); //D_FAN1_PWM - 55% PWM (value inverted)
 
 	  while (1){
 		  set_wbgr_strip_color(color_white);
@@ -382,6 +385,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10|GPIO_PIN_13, GPIO_PIN_SET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+
   /*Configure GPIO pin : PB0 */
   GPIO_InitStruct.Pin = GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -394,6 +400,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
