@@ -1,5 +1,5 @@
-Drivers/STM32H5xx_HAL_Driver/stm32h5xx_hal_dma_ex.o: \
- /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_dma_ex.c \
+Drivers/STM32H5xx_HAL_Driver/stm32h5xx_hal_adc.o: \
+ /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_adc.c \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h \

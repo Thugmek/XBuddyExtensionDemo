@@ -20,6 +20,9 @@ Core/Src/stm32h5xx_hal_msp.o: ../Core/Src/stm32h5xx_hal_msp.c \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h \
+ /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_adc.h \
+ /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_adc.h \
+ /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_adc_ex.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash_ex.h \
  /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pwr.h \
@@ -48,6 +51,9 @@ Core/Src/stm32h5xx_hal_msp.o: ../Core/Src/stm32h5xx_hal_msp.c \
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h:
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h:
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h:
+/home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_adc.h:
+/home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_adc.h:
+/home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_adc_ex.h:
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash.h:
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash_ex.h:
 /home/thugmek/STM32Cube/Repository/STM32Cube_FW_H5_V1.3.0/Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pwr.h:
