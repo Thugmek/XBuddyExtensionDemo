@@ -7,5 +7,6 @@
 ../Core/Src/main.c:424:13:MX_TIM3_Init	8
 ../Core/Src/main.c:491:13:MX_GPIO_Init	1
 ../Core/Src/main.c:533:6:set_wbgr_strip_color	1
-../Core/Src/main.c:540:6:HAL_ADC_ConvCpltCallback	4
-../Core/Src/main.c:565:6:Error_Handler	1
+../Core/Src/main.c:550:7:adc_to_temperature	1
+../Core/Src/main.c:560:6:HAL_ADC_ConvCpltCallback	2
+../Core/Src/main.c:576:6:Error_Handler	1

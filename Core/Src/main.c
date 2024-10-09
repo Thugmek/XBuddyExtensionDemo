@@ -256,7 +256,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_18;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
@@ -537,22 +537,33 @@ void set_wbgr_strip_color(const float* color){
 	TIM2->CCR4 = (int)(65532 * color[3]); //D_PWM_R
 }
 
+#define ADC_MAX 4095        // 10-bit ADC
+#define R_FIXED 4700.0      // Fixed 4.7kΩ resistor
+#define BETA 3950.0         // Beta coefficient of the thermistor
+#define T0 298.15           // Reference temperature (25°C in Kelvin)
+#define R0 100000.0         // Thermistor resistance at 25°C (100kΩ)
+
+// ADC reference seems to be little bit lower than 3V3 rail.
+// This less than 2% tweak makes a huge difference in output precision.
+#define ADC_SCALING_FACTOR 0.98238352828
+
+float adc_to_temperature(uint16_t adc_value) {
+	float adc_scaled = adc_value*ADC_SCALING_FACTOR;
+
+	float r_therm = (R_FIXED * adc_scaled)/(ADC_MAX-adc_scaled);
+	float temp_kelvin = 1.0 / ((1.0/T0)-(log(R0/r_therm)/BETA));
+	float temp_celsius = temp_kelvin - 273.15;
+
+	return temp_celsius;
+}
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
   if (hadc->Instance == ADC1)
   {
-	const float pot_min = 0.1;
-	const float pot_max = 4.7;
     // ADC conversion complete, get the value
     uint32_t raw_adc = HAL_ADC_GetValue(hadc);
-    float pot_value = (-4.7*raw_adc)/(raw_adc-4096.0);
-    float fan_power = (pot_value-pot_min)/(pot_max-pot_min);
-    if(fan_power > 1.0) fan_power = 1.0;
-    if(fan_power < 0.0) fan_power = 0.0;
-
-    TIM3->CCR2 = 65532 - (int)(65532*fan_power); //D_FAN2_PWM - 55% PWM (value inverted)
-    TIM3->CCR3 = 65532 - (int)(65532*fan_power); //D_FAN1_PWM - 55% PWM (value inverted)
-    // You can process the adc_value here (e.g., send it via UART, process, etc.)
+    uint32_t temperature = adc_to_temperature(raw_adc);
   }
 }
 
